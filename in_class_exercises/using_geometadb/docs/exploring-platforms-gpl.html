@@ -26,7 +26,7 @@ ask reproducible questions in SQL from R, and shortlist RNA-seq series.</p>" />
 <meta name="author" content="Ruth Isserlin" />
 
 
-<meta name="date" content="2026-01-19" />
+<meta name="date" content="2026-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -202,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-4"><a href="exploring-platforms-gpl.html#cb15-4" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> <span class="fu">subset</span>(num_uniq_tech, <span class="sc">!</span><span class="fu">is.na</span>(technology))</span>
 <span id="cb15-5"><a href="exploring-platforms-gpl.html#cb15-5" tabindex="-1"></a> <span class="fu">ggplot</span>(plot_df, <span class="fu">aes</span>(<span class="at">x =</span> technology, <span class="at">y =</span> Num_Platforms)) <span class="sc">+</span></span>
 <span id="cb15-6"><a href="exploring-platforms-gpl.html#cb15-6" tabindex="-1"></a>   <span class="fu">geom_col</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
-<p><img src="geometadb-tutorial_files/figure-html/unnamed-chunk-7-1.png" alt="" width="672" /></p>
+<p><img src="geometadb-tutorial_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <div id="restrict-to-human" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Restrict to human<a href="exploring-platforms-gpl.html#restrict-to-human" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="exploring-platforms-gpl.html#cb16-1" tabindex="-1"></a>num_uniq_tech_human <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">&quot;select technology, count(*) as Num_Platforms from gpl where organism = &#39;Homo sapiens&#39; group by technology order by Num_Platforms desc&quot;</span>)</span>
@@ -219,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-12"><a href="exploring-platforms-gpl.html#cb16-12" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb16-13"><a href="exploring-platforms-gpl.html#cb16-13" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>) <span class="sc">+</span></span>
 <span id="cb16-14"><a href="exploring-platforms-gpl.html#cb16-14" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Platforms that contain human vs human only&#39;</span>)</span></code></pre></div>
-<p><img src="geometadb-tutorial_files/figure-html/unnamed-chunk-8-1.png" alt="" width="672" /></p>
+<p><img src="geometadb-tutorial_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 
 </div>
 </div>
